@@ -1,0 +1,22 @@
+name: herald
+
+services:
+  sql:
+    image: besiedlungszug/herald-sql-server:0.4.1
+    environment:
+      DOLT_DATABASE: "herald"
+      DOLT_USER: "user"
+      DOLT_PASSWORD: "pass"
+      DOLT_USER_HOST: "%"
+    ports:
+      - "3306:3306"
+  smtp:
+    image: axllent/mailpit:v1.30
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: "true"
+      MP_SMTP_REQUIRE_TLS: "true"
+      MP_SMTP_TLS_CERT: "sans:localhost"
+      MP_SMTP_TLS_KEY: "sans:localhost"
+    ports:
+      - "1025:1025"
+      - "8025:8025"

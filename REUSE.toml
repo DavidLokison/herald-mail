@@ -1,0 +1,19 @@
+version = 1
+
+[[annotations]]
+path = [
+    ".cargo/**",
+    "src/**",
+    "tests/**",
+    ".gitignore",
+    "CHANGELOG.md",
+    "Cargo.lock",
+    "Cargo.toml",
+    "LICENSE",
+    "README.md",
+    "REUSE.toml",
+    "compose.yaml",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "The Herald Mail Contributors"
+SPDX-License-Identifier = "Apache-2.0"
