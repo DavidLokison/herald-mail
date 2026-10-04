@@ -11,7 +11,7 @@ use herald::Uuid;
 pub(crate) async fn renderer(mut conn: MySqlConnection, mut rx: MpscReceiver<(Uuid, u64)>, tx: MpscSender<String>) -> () {
     let mut cache: HashMap<u64, Option<String>> = HashMap::new();
     let mut handlebars = Handlebars::new();
-    handlebars.register_templates_directory("srv/skel", DirectorySourceOptionsBuilder::default().tpl_extension(".hbs").build().unwrap()).expect("Error while reading template directory");
+    handlebars.register_templates_directory("skel/", DirectorySourceOptionsBuilder::default().tpl_extension(".hbs").build().unwrap()).expect("Error while reading template directory");
     handlebars.set_strict_mode(true);
     handlebars.register_escape_fn(handlebars::no_escape);
     loop {
